@@ -39,7 +39,8 @@ const useUserStore = defineStore('user',{
         },
 
         makupRouters(){
-            this.routers = this.routers.concat(asyncRoutes)
+            console.log("makupRouters=>")
+            this.routers = [...routes,...asyncRoutes]
             setLocalStorage("routers",this.routers)
         }
 

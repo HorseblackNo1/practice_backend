@@ -234,13 +234,11 @@ export default {
             }else{
                 path = `${item.path}` 
             }
+           
             console.log(path)
             this.$router.push({ path})
 
         },
-        gotoPage(item){
-             console.log("item=>", item) 
-        }
     }
 }
 </script>

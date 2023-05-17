@@ -21,7 +21,7 @@ router.beforeEach(async (to, from, next) => {
   NProgress.start();
   const hasToken = useUserStore().token;
 
-  document.title = "123123123";
+  // document.title = "123123123"; // 设置pageTitle
   if (hasToken) {
     if (to.path == "/login") {
       next();
@@ -30,36 +30,19 @@ router.beforeEach(async (to, from, next) => {
       // 判断权限
       console.log("判断权限");
       let _useUserStore = useUserStore();
-      console.log(_useUserStore.userInfo);
       let hasRoles =
         _useUserStore.userInfo.roles && _useUserStore.userInfo.roles.length > 0;
-      // hasRoles = ''
-      console.log("hasRoles=>", hasRoles);
       if (hasRoles) {
         next();
       } else {
-        // next()
-        // console.log("asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfadf")
-
         try {
           await _useUserStore.getUserInfo();
-          console.log("asyncRoutes=>", asyncRoutes);
           let accessRoutes = asyncRoutes;
           for (let x of accessRoutes) {
             console.log("x=>", x);
             router.addRoute(x);
           }
           _useUserStore.makupRouters();
-          //   let obj = {
-          //     path: "page",
-          //     component: () => import("@/views/permission/page"),
-          //     name: "PagePermission",
-          //     meta: {
-          //       title: "Page Permission",
-          //       roles: ["admin"], // or you can only set roles in sub nav
-          //     },
-          //   };
-          //   router.addRoute('home',obj)
           return next({ ...to, replace: true });
         } catch (e) {
           showToast({ type: "error", text: `err` });
@@ -71,7 +54,7 @@ router.beforeEach(async (to, from, next) => {
       next();
       NProgress.done();
     } else {
-    //   console.log("dddddddd");
+      //   console.log("dddddddd");
       next(`/login?redirect=${to.path}`);
     }
   }
