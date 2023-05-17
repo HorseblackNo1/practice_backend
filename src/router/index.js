@@ -129,6 +129,6 @@ export const asyncRoutes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes:[...routes,...asyncRoutes],
+  routes:routes,
 });
 export default router;

@@ -49,7 +49,7 @@ router.beforeEach(async (to, from, next) => {
             console.log("x=>", x);
             router.addRoute(x);
           }
-        //   _useUserStore.makupRouters();
+          _useUserStore.makupRouters();
           //   let obj = {
           //     path: "page",
           //     component: () => import("@/views/permission/page"),
