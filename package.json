@@ -1,0 +1,32 @@
+{
+  "name": "new-tb-element",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev:dev": "vite --mode dev",
+    "build:dev": "vite build --mode dev",
+    "build:prod": "vite build --mode prod",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "axios": "^1.4.0",
+    "crypto-js": "^4.1.1",
+    "echarts": "^5.4.2",
+    "element-plus": "^2.3.4",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.36",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
+    "screenfull": "^6.0.2",
+    "vue": "^3.2.47",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.2.2",
+    "vite": "^4.3.2"
+  }
+}
