@@ -32,18 +32,21 @@ router.beforeEach(async (to, from, next) => {
       let _useUserStore = useUserStore();
       let hasRoles =
         _useUserStore.userInfo.roles && _useUserStore.userInfo.roles.length > 0;
+      // console.log(router.hasRoute("Permission"))
+     
       if (hasRoles) {
-        next();
+        next()
       } else {
         try {
           await _useUserStore.getUserInfo();
           let accessRoutes = asyncRoutes;
           for (let x of accessRoutes) {
-            console.log("x=>", x);
             router.addRoute(x);
           }
           _useUserStore.makupRouters();
-          return next({ ...to, replace: true });
+
+          // next({ ...to, replace: true });
+          next({ path:to.path, replace: true })
         } catch (e) {
           showToast({ type: "error", text: `err` });
         }

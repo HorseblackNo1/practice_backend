@@ -41,6 +41,12 @@ export const routes = [
     ],
   },
   {
+    path: '/:catchAll(.*)',
+    // name: 'TempRoute',  // 这里不要加
+    hidden: true,
+    component: () => import('@/views/error-page/404.vue')
+  },
+  {
     path: "/documentation",
     component: Layout,
     redirect: "/documentation/index",

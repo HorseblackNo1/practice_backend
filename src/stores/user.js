@@ -6,7 +6,7 @@ import { getuserInfo, } from '@/api/user'
 const useUserStore = defineStore('user',{
     state:() => ({
        token:getLocalStorage('token')?getLocalStorage('token'):'',
-       userInfo:getLocalStorage('userInfo')?getLocalStorage('userInfo'):'',
+       userInfo:'',
        routers:getLocalStorage('routers')?getLocalStorage('routers'):routes,
     }),
     

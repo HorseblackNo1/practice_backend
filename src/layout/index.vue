@@ -19,8 +19,8 @@
     </div>
 </template>
 <script>
-import { useAppInfoStore } from '@/stores'
-import { mapState} from 'pinia'
+import { useAppInfoStore,useUserStore } from '@/stores'
+import { mapState,mapStores} from 'pinia'
 import { Sidebar, Navbar, TagsView, AppMain, Setting } from './components'
 
 export default {
@@ -31,6 +31,7 @@ export default {
         }
     },
     computed: {
+        ...mapStores(useUserStore),
         ...mapState(useAppInfoStore, {
             sidebar: state => state.sidebar,
             device: state => state.device,
@@ -55,7 +56,16 @@ export default {
     },
 
     mounted() {
-        // console.log("this=>", this)
+        console.log("this=>", this)
+       
+        // window.addEventListener('beforeunload', e =>this.test(e))
+    },
+    methods:{
+        test(e){
+            // this.userStore.userLayout()
+            console.log('刷新或关闭')
+
+        }
     }
 }
 </script>
